@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1;net472</TargetFrameworks>
+        <LangVersion>latest</LangVersion>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+
+        <Version>0.1.0</Version>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/NuclearPowered/Reactor.BepInAutoPlugin</RepositoryUrl>
+        <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
+        <Description>MSBuild task for filling BepInPlugin from csproj</Description>
+
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <DevelopmentDependency>true</DevelopmentDependency>
+        <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+        <DebugType>embedded</DebugType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Build.Framework" Version="16.9.0" />
+        <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.9.0" />
+        <PackageReference Include="Mono.Cecil" Version="0.11.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="Reactor.BepInAutoPlugin.TargetFramework.props" Pack="true" PackagePath="build\Reactor.BepInAutoPlugin.props" />
+        <Content Include="Reactor.BepInAutoPlugin.TargetFrameworks.props" Pack="true" PackagePath="buildMultiTargeting\Reactor.BepInAutoPlugin.props" />
+    </ItemGroup>
+
+    <Target Name="PackTaskDependencies" BeforeTargets="GenerateNuspec">
+        <ItemGroup>
+            <_PackageFiles Include="bin\$(Configuration)\*\Mono.*.dll">
+                <PackagePath>lib%(RecursiveDir)</PackagePath>
+                <Visible>false</Visible>
+                <BuildAction>Content</BuildAction>
+            </_PackageFiles>
+        </ItemGroup>
+    </Target>
+</Project>

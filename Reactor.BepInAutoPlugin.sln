@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reactor.BepInAutoPlugin", "Reactor.BepInAutoPlugin\Reactor.BepInAutoPlugin.csproj", "{EF3980CD-44F3-419F-BA6C-3C7B0C481CAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{26DD4C99-4730-479E-9CB6-5523A41873C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF3980CD-44F3-419F-BA6C-3C7B0C481CAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF3980CD-44F3-419F-BA6C-3C7B0C481CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF3980CD-44F3-419F-BA6C-3C7B0C481CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF3980CD-44F3-419F-BA6C-3C7B0C481CAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26DD4C99-4730-479E-9CB6-5523A41873C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26DD4C99-4730-479E-9CB6-5523A41873C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26DD4C99-4730-479E-9CB6-5523A41873C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26DD4C99-4730-479E-9CB6-5523A41873C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

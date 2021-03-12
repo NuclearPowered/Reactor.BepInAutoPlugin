@@ -1,0 +1,15 @@
+<Project TreatAsLocalProperty="TaskFolder;BepInAutoPluginTaskAssembly">
+    <PropertyGroup>
+        <IsNetCoreApp Condition="$(MSBuildRuntimeType) == 'Core'">true</IsNetCoreApp>
+        <IsNetCoreApp Condition="$(IsNetCoreApp) == ''">false</IsNetCoreApp>
+        <TaskFolder Condition="$(IsNetCoreApp)">netstandard2.1</TaskFolder>
+        <TaskFolder Condition="!$(IsNetCoreApp)">net472</TaskFolder>
+        <BepInAutoPluginTaskAssembly>$(MSBuildThisFileDirectory)..\lib\$(TaskFolder)\Reactor.BepInAutoPlugin.dll</BepInAutoPluginTaskAssembly>
+    </PropertyGroup>
+
+    <UsingTask TaskName="ReplaceBepInPlugin" AssemblyFile="$(BepInAutoPluginTaskAssembly)" />
+
+    <Target Name="ReplaceBepInPlugin">
+        <ReplaceBepInPlugin Input="$(ProjectDir)$(OutputPath)$(AssemblyName).dll" ReferencedAssemblies="@(ReferencePath)" />
+    </Target>
+</Project>
